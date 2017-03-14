@@ -2,7 +2,7 @@ import time, os
 
 os.system ('iptables -A INPUT -p tcp -s 192.168.1.0/24 -m string --string "%27" --algo bm -j LOG --log-prefix "SQL_INJECTION "')
 def follow(file):
-    file.seek(0,2)      # Go to the end of the file
+    file.seek(0,2)      
     while True:
          line = file.readline()
          if not line:
