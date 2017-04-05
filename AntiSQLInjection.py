@@ -1,5 +1,9 @@
 import time, os
+import sys
+import subprocess
 
+if not os.geteuid() == 0:
+	sys.exit ("You need root permission to run it !")
 os.system ('iptables -A INPUT -p tcp -s 192.168.1.0/24 -m string --string "%27" --algo bm -j LOG --log-prefix "SQL_INJECTION "')
 def follow(file):
     file.seek(0,2)      
