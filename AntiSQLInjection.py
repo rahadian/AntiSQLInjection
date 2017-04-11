@@ -1,12 +1,17 @@
 import time
 import os
 import sys
-#import subprocess
 
+#import subprocess
+colorred = "\033[01;31m{0}\033[00m"
+colorgrn = "\033[01;36m{0}\033[00m"
 if not os.geteuid() == 0:
-        sys.exit ("You need root permission to run it !")
+	print colorred.format ("You need root permission to run it !")
+	sys.exit()
 def opening():
-        print "===== AntiSQLInjection by AryaTux ====="
+        print colorred.format ("============================")
+	print colorgrn.format ("AntiSQLInjection by AryaTUX")
+	print colorred.format ("============================")
         print "(1)Execute"
         print "(2)Delete rules"
         print "(3)Exit"
@@ -17,6 +22,7 @@ def opening():
         elif choose == 2:
                 delete()
         elif choose == 3:
+		print colorred.format("BYE !!!")
                 exit()
         else:
                 print "Choose the correct number ! "
@@ -50,6 +56,6 @@ def delete():
 	dibdel2 = "iptables -D INPUT -p tcp -s {} -m string --string \"%27\" --algo bm -j REJECT" .format(ipdel)
         os.system (dibdel2)
 	os.system (dibdel1)
-        print "DELETED !"
+        print colorred.format ("DELETED !!!")
 
 opening()
