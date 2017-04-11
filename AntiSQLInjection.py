@@ -46,8 +46,8 @@ def execute():
                         #print "DETECTED"
 def delete():
         ipdel = raw_input("Enter your network ip(ex:192.168.0.0/24) :")
-        dibdel1 = "iptables -D INPUT -p tcp -s {} -m string --string \"%27\" --algo bm -j LOG --log-prefix \"SQL_INJECTION DETECTED \"" .format(ipdel1)
-	dibdel2 = "iptables -D INPUT -p tcp -s {} -m string --string \"%27\" --algo bm -j REJECT" .format(ipdel2)
+        dibdel1 = "iptables -D INPUT -p tcp -s {} -m string --string \"%27\" --algo bm -j LOG --log-prefix \"SQL_INJECTION DETECTED \"" .format(ipdel)
+	dibdel2 = "iptables -D INPUT -p tcp -s {} -m string --string \"%27\" --algo bm -j REJECT" .format(ipdel)
         os.system (dibdel2)
 	os.system (dibdel1)
         print "DELETED !"
